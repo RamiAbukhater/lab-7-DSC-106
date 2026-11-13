@@ -2,11 +2,11 @@ body {
   font: 100%/1.5 system-ui, sans-serif;
   display: flex;
   flex-flow: column;
-  max-width: 80em;
+  width: 100%;
   min-height: 100vh;
   box-sizing: border-box;
-  margin: auto;
-  padding: 1em;
+  margin: 0;
+  padding: 1em 1.5em;
 }
 
 header {
@@ -31,10 +31,19 @@ header input[type='range'] {
   width: min(20em, 50vw);
 }
 
+/* Fixed-width slot holding either the time or "(any time)" in the same grid
+   cell, so the label never changes width and the slider never shifts under
+   the cursor while dragging. */
+header .time-display {
+  display: grid;
+  width: 6.5em;
+  font-variant-numeric: tabular-nums;
+}
+
 header time,
 header em {
   display: block;
-  min-width: 6em;
+  grid-area: 1 / 1;
 }
 
 header em {

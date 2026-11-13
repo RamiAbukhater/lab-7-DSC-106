@@ -1,13 +1,12 @@
 html,
 body {
-  margin: 0;
   height: 100%;
 }
 
 #map {
   position: relative;
   flex: 1;
-  min-height: 60vh;
+  min-height: 400px;
   width: 100%;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   border-radius: 8px;
