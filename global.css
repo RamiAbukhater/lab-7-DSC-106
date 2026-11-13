@@ -1,0 +1,83 @@
+body {
+  font: 100%/1.5 system-ui, sans-serif;
+  display: flex;
+  flex-flow: column;
+  max-width: 80em;
+  min-height: 100vh;
+  box-sizing: border-box;
+  margin: auto;
+  padding: 1em;
+}
+
+header {
+  display: flex;
+  gap: 1em;
+  align-items: baseline;
+  flex-wrap: wrap;
+}
+
+header h1 {
+  margin-block: 0.4em;
+}
+
+header label {
+  margin-left: auto;
+  display: flex;
+  align-items: baseline;
+  gap: 0.5em;
+}
+
+header input[type='range'] {
+  width: min(20em, 50vw);
+}
+
+header time,
+header em {
+  display: block;
+  min-width: 6em;
+}
+
+header em {
+  color: #888;
+  font-style: italic;
+}
+
+p {
+  margin-top: 0;
+  color: #555;
+}
+
+/* Colors shared by the station circles and the legend */
+#map circle,
+.legend > div {
+  --color-departures: steelblue;
+  --color-arrivals: darkorange;
+  --color: color-mix(
+    in oklch,
+    var(--color-departures) calc(100% * var(--departure-ratio)),
+    var(--color-arrivals)
+  );
+}
+
+.legend {
+  display: flex;
+  gap: 1px;
+  margin-block: 1em;
+}
+
+.legend > div {
+  flex: 1;
+  padding: 0.4em 1.5em;
+  background: var(--color);
+  color: white;
+  font-weight: 600;
+  text-align: center;
+}
+
+.legend > div:first-child {
+  text-align: left;
+}
+
+.legend > div:last-child {
+  text-align: right;
+}
