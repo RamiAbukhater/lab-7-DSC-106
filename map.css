@@ -28,4 +28,28 @@ body {
   stroke: white;
   stroke-width: 1;
   pointer-events: auto;
+  cursor: pointer;
+}
+
+#map svg circle.hovered {
+  fill-opacity: 0.9;
+  stroke: black;
+  stroke-width: 2;
+}
+
+#tooltip {
+  position: fixed;
+  z-index: 10;
+  max-width: 18em;
+  padding: 0.5em 0.75em;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 6px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  font-size: 0.9em;
+  line-height: 1.4;
+  pointer-events: none;
+}
+
+#tooltip[hidden] {
+  display: none;
 }

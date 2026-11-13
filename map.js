@@ -163,6 +163,24 @@ map.on('load', async () => {
 
   setTooltips(circles);
 
+  // The <title> above is the lab's native tooltip, but browsers only show it
+  // after the mouse rests ~1s. This HTML tooltip appears instantly on hover.
+  const tooltip = document.getElementById('tooltip');
+  circles
+    .on('mouseenter', function (event, d) {
+      tooltip.innerHTML = `<strong>${d.name}</strong><br>${d.totalTraffic} trips (${d.departures} departures, ${d.arrivals} arrivals)`;
+      tooltip.hidden = false;
+      d3.select(this).classed('hovered', true);
+    })
+    .on('mousemove', (event) => {
+      tooltip.style.left = `${event.clientX + 14}px`;
+      tooltip.style.top = `${event.clientY + 14}px`;
+    })
+    .on('mouseleave', function () {
+      tooltip.hidden = true;
+      d3.select(this).classed('hovered', false);
+    });
+
   function setTooltips(selection) {
     selection
       .select('title')
